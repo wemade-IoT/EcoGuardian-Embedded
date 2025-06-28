@@ -1,0 +1,15 @@
+{
+  "name": "light-sensor",
+  "author": "Mathias Alejandro Jave Diaz",
+  "pins": [
+    "VCC",
+    "GND",
+    "A0",
+    "",
+    ""
+  ],
+  "controls": [
+    {"id":"light", "label": "Light %", "type":"range", "min":0,"max":100, "step":1},
+    {"id":"threshold", "label": "Light Threshold %", "type": "range", "min":50,"max":50, "step":1}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "water-sensor",
+  "author": "Mathias Alejandro Jave Diaz",
+  "pins": [
+    "VCC",
+    "GND",
+    "A0",
+    "",
+    ""
+  ],
+  "controls": [
+    {"id":"water", "label":"Water %", "type":"range", "max":100, "min":0, "step":1},
+    {"id":"threshold", "label": "Water Threshold %", "type": "range", "min":50,"max":50, "step":1}
+  ]
+}
