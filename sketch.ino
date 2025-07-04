@@ -6,8 +6,9 @@
 #define WIFI_SSID "Wokwi-GUEST"
 #define WIFI_PASSWORD ""
 #define WIFI_CHANNEL 6
+#define DEVICE_ID 1
 
-MonitorinPlantDevice device;
+MonitorinPlantDevice device(DEVICE_ID);
 WebServer server(80);
 InterfaceService interfaceService(&server, &device);
 

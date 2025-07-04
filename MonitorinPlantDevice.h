@@ -14,6 +14,7 @@
 
 class MonitorinPlantDevice : Device {
 private:
+    int id;
     OneWire oneWire;
     DallasTemperature sensors;
     LightSensor lightSensor;
@@ -25,7 +26,7 @@ public:
     static const int WATER_PIN = 34;
     static const int HUMIDITY_SENSOR_PIN = 25;
     static const int WATER_DISPENSOR_PIN = 18;
-    MonitorinPlantDevice(int lightPin = LIGHT_PIN,int waterPin = WATER_PIN, int humidityPin = HUMIDITY_SENSOR_PIN, int waterDispensorPin = WATER_DISPENSOR_PIN);
+    MonitorinPlantDevice(int id, int lightPin = LIGHT_PIN,int waterPin = WATER_PIN, int humidityPin = HUMIDITY_SENSOR_PIN, int waterDispensorPin = WATER_DISPENSOR_PIN);
     void on(Event event) override;
     void handle(Command command) override;
     LightSensor getLightSensor();
@@ -43,6 +44,7 @@ public:
     void dispenseWater();
     void restart();
     void print(const std::string& message);
+    int getId() const;
 
 
 };

@@ -3,14 +3,19 @@
 //
 #include "MonitorinPlantDevice.h"
 #include <Arduino.h>
-MonitorinPlantDevice::MonitorinPlantDevice(int lightPin, int waterPin, int humidityPin, int waterDispensorPin)
-: oneWire(humidityPin),
+MonitorinPlantDevice::MonitorinPlantDevice(int id, int lightPin, int waterPin, int humidityPin, int waterDispensorPin)
+: id(id),
+  oneWire(humidityPin),
   sensors(&oneWire),
   lightSensor(2, lightPin),
   humiditySensor(1, humidityPin),
   waterSensor(3, waterPin),
   waterDispensor(4, waterDispensorPin)
 {}
+
+int MonitorinPlantDevice::getId() const {
+    return id;
+}
 
 HumiditySensor MonitorinPlantDevice::getHumiditySensor() {
     return humiditySensor;
@@ -109,6 +114,3 @@ void MonitorinPlantDevice::updateWaterSensorValue() {
     print("Water Sensor Value: ");
     print(std::to_string(value));
 }
-
-
-

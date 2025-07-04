@@ -26,20 +26,21 @@ void InterfaceService::setSendInterval(unsigned long intervalMs) {
 }
 
 void InterfaceService::sendSensorData() {
+    int deviceId = device->getId();
     // Humedad
     device->triggerHumiditySensorEvent();
     float humidity = device->getHumiditySensor().getValue(device->getSensors());
-    sendMetric(humidity, 1, device->getHumiditySensor().getId()); // metricTypesId=1
+    sendMetric(humidity, 1, deviceId); // metricTypesId=1
 
     // Luz
     device->triggerLightSensorEvent();
     float light = device->getLightSensor().getValue();
-    sendMetric(light, 2, device->getLightSensor().getId()); // metricTypesId=2
+    sendMetric(light, 2, deviceId); // metricTypesId=2
 
     // Agua
     device->triggerWaterSensorEvent();
     float water = device->getWaterSensor().getValue();
-    sendMetric(water, 3, device->getWaterSensor().getId()); // metricTypesId=3
+    sendMetric(water, 3, deviceId); // metricTypesId=3
 }
 
 void InterfaceService::sendMetric(float value, int metricTypesId, int deviceId) {
